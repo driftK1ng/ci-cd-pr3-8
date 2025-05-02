@@ -1,11 +1,11 @@
+from app.main import app
+from fastapi.testclient import TestClient
 import pytest
-import requests
 
-url = "http://127.0.0.1:8000"
+client = TestClient(app)
 
 def test_home():
-    path = "/"
-    request_url = url + path
-    data = requests.get(request_url)
+    data = client.get("/")
+    print(data.json())
     assert data.status_code == 200
-    assert data.content == b'"Hello docker!"'
+    assert data.json() == "Hello docker!"
