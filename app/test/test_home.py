@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-url = "http://127.0.0.1:8080"
+url = "http://127.0.0.1:8000"
 
 def test_home():
     path = "/"
